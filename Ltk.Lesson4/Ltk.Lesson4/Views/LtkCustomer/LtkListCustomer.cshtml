@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "LtkListCustomer";
+    var list = ViewBag.list;
+    int stt = 0;
+}
+
+<h2>Danh sách khách hàng</h2>
+<div class="row">
+    <table class="table table-bordered" >
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Mã số </td>
+                <td>Họ và tên</td>
+                <td>Địa chỉ</td>
+                <td>Năm sinh</td>
+                <td>Chức năng</td>
+            </tr>
+        </thead>    
+        <tbody>
+            @foreach (var item in list)
+            {
+                stt++;
+            <tr>
+                <td>@stt</td>
+                <td>@item.CustomerId</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Address</td>
+                <td>@item.YearOfBirth</td>
+                <td>
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
