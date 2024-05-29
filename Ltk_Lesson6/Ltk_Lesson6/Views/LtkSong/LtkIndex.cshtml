@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Ltk_Lesson6.Models.LtkSong>
+
+@{
+    ViewBag.Title = "Ltk: Danh sách bài hát";
+}
+
+<h2>Ltk: Danh sách bài hát</h2>
+
+<p>
+    @Html.ActionLink("Create New", "LtkCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkArtist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkYearRelease)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkArtist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkYearRelease)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
