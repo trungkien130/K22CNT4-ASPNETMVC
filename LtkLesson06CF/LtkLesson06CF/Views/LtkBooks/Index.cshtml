@@ -1,0 +1,70 @@
+﻿@model IEnumerable<LtkLesson06CF.Models.LtkBook>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkBookId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkPublic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkPicture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkCategoryId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LtkBookId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LtkTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LtkAuthor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LtkYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LtkPublic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LtkPicture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LtkCategoryId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.LtkId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.LtkId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.LtkId })
+            </td>
+        </tr>
+    }
+
+</table>

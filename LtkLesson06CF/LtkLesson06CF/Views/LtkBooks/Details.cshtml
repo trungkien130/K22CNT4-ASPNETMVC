@@ -1,0 +1,74 @@
+﻿@model LtkLesson06CF.Models.LtkBook
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LtkBook</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkBookId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkBookId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkPublic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkPublic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkPicture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkPicture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkCategoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkCategoryId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LtkId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
