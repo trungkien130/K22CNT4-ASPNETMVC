@@ -1,0 +1,74 @@
+﻿@model LtkK22CNT4Lesson07DF.Models.ltkSinhVien
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ltkSinhVien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkHoSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkHoSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkTenSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkTenSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkPhai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkPhai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkTrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkTrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ltkKhoa.ltkTenKhoa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ltkKhoa.ltkTenKhoa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Ltk: Edit", "LtkEdit", new { id = Model.ltkMaSV }) |
+    @Html.ActionLink("Back to List", "LtkIndex")
+</p>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LtkK22CNT4Lesson07DF.Models.ltkSinhVien>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "LtkCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkHoSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkTenSV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkPhai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkTrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ltkKhoa.ltkTenKhoa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkHoSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkTenSV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkPhai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkTrangThai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ltkKhoa.ltkTenKhoa)
+        </td>
+        <td>
+            @Html.ActionLink("Ltk: Edit", "LtkEdit", new { id=item.ltkMaSV.Trim() }) |
+            @Html.ActionLink("Ltk: Details", "LtkDetails", new { id=item.ltkMaSV.Trim() }) |
+            @Html.ActionLink("Ltk: Delete", "LtkDelete", new { id=item.ltkMaSV.Trim() })
+        </td>
+    </tr>
+}
+
+</table>

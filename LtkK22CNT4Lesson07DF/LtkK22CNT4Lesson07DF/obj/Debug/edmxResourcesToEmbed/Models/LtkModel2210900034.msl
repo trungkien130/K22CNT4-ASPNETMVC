@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LtkK22CNT4Lesson7DBModelStoreContainer" CdmEntityContainer="LtkK22CNT4Lesson7DBEntities1">
+    <EntitySetMapping Name="ltkKhoa">
+      <EntityTypeMapping TypeName="LtkK22CNT4Lesson7DBModel.ltkKhoa">
+        <MappingFragment StoreEntitySet="ltkKhoa">
+          <ScalarProperty Name="ltkMaKH" ColumnName="ltkMaKH" />
+          <ScalarProperty Name="ltkTenKhoa" ColumnName="ltkTenKhoa" />
+          <ScalarProperty Name="ltkTrangThai" ColumnName="ltkTrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ltkSinhVien">
+      <EntityTypeMapping TypeName="LtkK22CNT4Lesson7DBModel.ltkSinhVien">
+        <MappingFragment StoreEntitySet="ltkSinhVien">
+          <ScalarProperty Name="ltkMaSV" ColumnName="ltkMaSV" />
+          <ScalarProperty Name="LtkHoSV" ColumnName="LtkHoSV" />
+          <ScalarProperty Name="LtkTenSV" ColumnName="LtkTenSV" />
+          <ScalarProperty Name="LtkPhai" ColumnName="LtkPhai" />
+          <ScalarProperty Name="LtkEmail" ColumnName="LtkEmail" />
+          <ScalarProperty Name="LtkPhone" ColumnName="LtkPhone" />
+          <ScalarProperty Name="LtkMaKH" ColumnName="LtkMaKH" />
+          <ScalarProperty Name="LtkTrangThai" ColumnName="LtkTrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
