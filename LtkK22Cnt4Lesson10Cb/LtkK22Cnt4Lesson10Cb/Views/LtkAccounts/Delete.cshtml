@@ -1,0 +1,73 @@
+﻿@model LtkK22Cnt4Lesson10Cb.Models.LtkAccount
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LtkLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LtkAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkUserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkUserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkActive)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

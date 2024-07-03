@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LtkK22Cnt4Lesson10CbModelStoreContainer" CdmEntityContainer="LtkK22Cnt4Lesson10CbEntities">
+    <EntitySetMapping Name="LtkAccounts">
+      <EntityTypeMapping TypeName="LtkK22Cnt4Lesson10CbModel.LtkAccount">
+        <MappingFragment StoreEntitySet="LtkAccount">
+          <ScalarProperty Name="LtkID" ColumnName="LtkID" />
+          <ScalarProperty Name="LtkUserName" ColumnName="LtkUserName" />
+          <ScalarProperty Name="LtkPassword" ColumnName="LtkPassword" />
+          <ScalarProperty Name="LtkFullName" ColumnName="LtkFullName" />
+          <ScalarProperty Name="LtkEmail" ColumnName="LtkEmail" />
+          <ScalarProperty Name="LtkPhone" ColumnName="LtkPhone" />
+          <ScalarProperty Name="LtkActive" ColumnName="LtkActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

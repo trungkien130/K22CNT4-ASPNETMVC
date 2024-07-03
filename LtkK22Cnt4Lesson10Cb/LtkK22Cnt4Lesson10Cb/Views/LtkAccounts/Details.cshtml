@@ -1,0 +1,67 @@
+﻿@model LtkK22Cnt4Lesson10Cb.Models.LtkAccount
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LtkLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LtkAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkUserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkUserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LtkID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<LtkK22Cnt4Lesson10Cb.Models.LtkAccount>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LtkLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkUserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkFullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkUserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkFullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LtkActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LtkID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LtkID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LtkID })
+        </td>
+    </tr>
+}
+
+</table>
