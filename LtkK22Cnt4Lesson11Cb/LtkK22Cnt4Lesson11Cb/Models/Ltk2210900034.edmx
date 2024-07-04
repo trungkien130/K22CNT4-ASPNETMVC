@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LtkK22Cnt4Lesson11CbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LtkCatagory">
+          <Key>
+            <PropertyRef Name="LtkID" />
+          </Key>
+          <Property Name="LtkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LtkCateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LtkStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="LtkProduct">
+          <Key>
+            <PropertyRef Name="LtkID2210900034" />
+          </Key>
+          <Property Name="LtkID2210900034" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LtkProName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LtkQty" Type="int" />
+          <Property Name="LtkPrice" Type="float" />
+          <Property Name="LtkCateId" Type="int" />
+          <Property Name="LtkActive" Type="bit" />
+        </EntityType>
+        <Association Name="FK_LtkProduct_LtkCatagory">
+          <End Role="LtkCatagory" Type="Self.LtkCatagory" Multiplicity="0..1" />
+          <End Role="LtkProduct" Type="Self.LtkProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtkCatagory">
+              <PropertyRef Name="LtkID" />
+            </Principal>
+            <Dependent Role="LtkProduct">
+              <PropertyRef Name="LtkCateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LtkK22Cnt4Lesson11CbModelStoreContainer">
+          <EntitySet Name="LtkCatagory" EntityType="Self.LtkCatagory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LtkProduct" EntityType="Self.LtkProduct" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LtkProduct_LtkCatagory" Association="Self.FK_LtkProduct_LtkCatagory">
+            <End Role="LtkCatagory" EntitySet="LtkCatagory" />
+            <End Role="LtkProduct" EntitySet="LtkProduct" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LtkK22Cnt4Lesson11CbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LtkCatagory">
+          <Key>
+            <PropertyRef Name="LtkID" />
+          </Key>
+          <Property Name="LtkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LtkCateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LtkStatus" Type="Boolean" />
+          <NavigationProperty Name="LtkProduct" Relationship="Self.FK_LtkProduct_LtkCatagory" FromRole="LtkCatagory" ToRole="LtkProduct" />
+        </EntityType>
+        <EntityType Name="LtkProduct">
+          <Key>
+            <PropertyRef Name="LtkID2210900034" />
+          </Key>
+          <Property Name="LtkID2210900034" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LtkProName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LtkQty" Type="Int32" />
+          <Property Name="LtkPrice" Type="Double" />
+          <Property Name="LtkCateId" Type="Int32" />
+          <Property Name="LtkActive" Type="Boolean" />
+          <NavigationProperty Name="LtkCatagory" Relationship="Self.FK_LtkProduct_LtkCatagory" FromRole="LtkProduct" ToRole="LtkCatagory" />
+        </EntityType>
+        <Association Name="FK_LtkProduct_LtkCatagory">
+          <End Role="LtkCatagory" Type="Self.LtkCatagory" Multiplicity="0..1" />
+          <End Role="LtkProduct" Type="Self.LtkProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LtkCatagory">
+              <PropertyRef Name="LtkID" />
+            </Principal>
+            <Dependent Role="LtkProduct">
+              <PropertyRef Name="LtkCateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LtkK22Cnt4Lesson11CbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LtkCatagory" EntityType="Self.LtkCatagory" />
+          <EntitySet Name="LtkProduct" EntityType="Self.LtkProduct" />
+          <AssociationSet Name="FK_LtkProduct_LtkCatagory" Association="Self.FK_LtkProduct_LtkCatagory">
+            <End Role="LtkCatagory" EntitySet="LtkCatagory" />
+            <End Role="LtkProduct" EntitySet="LtkProduct" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LtkK22Cnt4Lesson11CbModelStoreContainer" CdmEntityContainer="LtkK22Cnt4Lesson11CbEntities1">
+          <EntitySetMapping Name="LtkCatagory">
+            <EntityTypeMapping TypeName="LtkK22Cnt4Lesson11CbModel.LtkCatagory">
+              <MappingFragment StoreEntitySet="LtkCatagory">
+                <ScalarProperty Name="LtkID" ColumnName="LtkID" />
+                <ScalarProperty Name="LtkCateName" ColumnName="LtkCateName" />
+                <ScalarProperty Name="LtkStatus" ColumnName="LtkStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LtkProduct">
+            <EntityTypeMapping TypeName="LtkK22Cnt4Lesson11CbModel.LtkProduct">
+              <MappingFragment StoreEntitySet="LtkProduct">
+                <ScalarProperty Name="LtkID2210900034" ColumnName="LtkID2210900034" />
+                <ScalarProperty Name="LtkProName" ColumnName="LtkProName" />
+                <ScalarProperty Name="LtkQty" ColumnName="LtkQty" />
+                <ScalarProperty Name="LtkPrice" ColumnName="LtkPrice" />
+                <ScalarProperty Name="LtkCateId" ColumnName="LtkCateId" />
+                <ScalarProperty Name="LtkActive" ColumnName="LtkActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

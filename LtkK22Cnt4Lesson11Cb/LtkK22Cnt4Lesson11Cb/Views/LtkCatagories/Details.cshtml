@@ -1,0 +1,34 @@
+﻿@model LtkK22Cnt4Lesson11Cb.Models.LtkCatagory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LtkCatagory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkCateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkCateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LtkStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LtkStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LtkID }) |
+    @Html.ActionLink("Back to List", "LtkIndex")
+</p>

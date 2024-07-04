@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LtkK22Cnt4Lesson11CbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LtkCatagory">
+    <Key>
+      <PropertyRef Name="LtkID" />
+    </Key>
+    <Property Name="LtkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LtkCateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LtkStatus" Type="Boolean" />
+    <NavigationProperty Name="LtkProduct" Relationship="Self.FK_LtkProduct_LtkCatagory" FromRole="LtkCatagory" ToRole="LtkProduct" />
+  </EntityType>
+  <EntityType Name="LtkProduct">
+    <Key>
+      <PropertyRef Name="LtkID2210900034" />
+    </Key>
+    <Property Name="LtkID2210900034" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LtkProName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LtkQty" Type="Int32" />
+    <Property Name="LtkPrice" Type="Double" />
+    <Property Name="LtkCateId" Type="Int32" />
+    <Property Name="LtkActive" Type="Boolean" />
+    <NavigationProperty Name="LtkCatagory" Relationship="Self.FK_LtkProduct_LtkCatagory" FromRole="LtkProduct" ToRole="LtkCatagory" />
+  </EntityType>
+  <Association Name="FK_LtkProduct_LtkCatagory">
+    <End Role="LtkCatagory" Type="Self.LtkCatagory" Multiplicity="0..1" />
+    <End Role="LtkProduct" Type="Self.LtkProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LtkCatagory">
+        <PropertyRef Name="LtkID" />
+      </Principal>
+      <Dependent Role="LtkProduct">
+        <PropertyRef Name="LtkCateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LtkK22Cnt4Lesson11CbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LtkCatagory" EntityType="Self.LtkCatagory" />
+    <EntitySet Name="LtkProduct" EntityType="Self.LtkProduct" />
+    <AssociationSet Name="FK_LtkProduct_LtkCatagory" Association="Self.FK_LtkProduct_LtkCatagory">
+      <End Role="LtkCatagory" EntitySet="LtkCatagory" />
+      <End Role="LtkProduct" EntitySet="LtkProduct" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

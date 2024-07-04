@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LtkK22Cnt4Lesson11Cb.Models.LtkCatagory>
+
+@{
+    ViewBag.Title = "Danh mục sản phẩm";
+}
+
+<h2>Danh mục sản phẩm</h2>
+
+<p>
+    @* @Html.ActionLink("Create New", "Create")*@
+</p>
+<a href="/LtkCatagories/Create" class="btn btn-primary my-3">Thêm mới</a>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkCateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkStatus)
+        </th>
+        <th>Chức năng</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.LtkID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LtkCateName)
+    </td>
+    <td>
+@*        @Html.DisplayFor(modelItem => item.LtkStatus)
+*@        @if(item.LtkStatus==true){
+        <span style="color:green">Hoạt động</span>
+        }
+        else{
+        <span style="color:red">Không hoạt động</span>
+        }
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.LtkID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.LtkID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.LtkID })
+    </td>
+</tr>
+    }
+
+</table>

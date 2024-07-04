@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LtkK22Cnt4Lesson11CbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LtkCatagory">
+    <Key>
+      <PropertyRef Name="LtkID" />
+    </Key>
+    <Property Name="LtkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LtkCateName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LtkStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="LtkProduct">
+    <Key>
+      <PropertyRef Name="LtkID2210900034" />
+    </Key>
+    <Property Name="LtkID2210900034" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LtkProName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LtkQty" Type="int" />
+    <Property Name="LtkPrice" Type="float" />
+    <Property Name="LtkCateId" Type="int" />
+    <Property Name="LtkActive" Type="bit" />
+  </EntityType>
+  <Association Name="FK_LtkProduct_LtkCatagory">
+    <End Role="LtkCatagory" Type="Self.LtkCatagory" Multiplicity="0..1" />
+    <End Role="LtkProduct" Type="Self.LtkProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LtkCatagory">
+        <PropertyRef Name="LtkID" />
+      </Principal>
+      <Dependent Role="LtkProduct">
+        <PropertyRef Name="LtkCateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LtkK22Cnt4Lesson11CbModelStoreContainer">
+    <EntitySet Name="LtkCatagory" EntityType="Self.LtkCatagory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LtkProduct" EntityType="Self.LtkProduct" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LtkProduct_LtkCatagory" Association="Self.FK_LtkProduct_LtkCatagory">
+      <End Role="LtkCatagory" EntitySet="LtkCatagory" />
+      <End Role="LtkProduct" EntitySet="LtkProduct" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

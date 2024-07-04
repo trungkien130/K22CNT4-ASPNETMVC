@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LtkK22Cnt4Lesson11CbModelStoreContainer" CdmEntityContainer="LtkK22Cnt4Lesson11CbEntities1">
+    <EntitySetMapping Name="LtkCatagory">
+      <EntityTypeMapping TypeName="LtkK22Cnt4Lesson11CbModel.LtkCatagory">
+        <MappingFragment StoreEntitySet="LtkCatagory">
+          <ScalarProperty Name="LtkID" ColumnName="LtkID" />
+          <ScalarProperty Name="LtkCateName" ColumnName="LtkCateName" />
+          <ScalarProperty Name="LtkStatus" ColumnName="LtkStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LtkProduct">
+      <EntityTypeMapping TypeName="LtkK22Cnt4Lesson11CbModel.LtkProduct">
+        <MappingFragment StoreEntitySet="LtkProduct">
+          <ScalarProperty Name="LtkID2210900034" ColumnName="LtkID2210900034" />
+          <ScalarProperty Name="LtkProName" ColumnName="LtkProName" />
+          <ScalarProperty Name="LtkQty" ColumnName="LtkQty" />
+          <ScalarProperty Name="LtkPrice" ColumnName="LtkPrice" />
+          <ScalarProperty Name="LtkCateId" ColumnName="LtkCateId" />
+          <ScalarProperty Name="LtkActive" ColumnName="LtkActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

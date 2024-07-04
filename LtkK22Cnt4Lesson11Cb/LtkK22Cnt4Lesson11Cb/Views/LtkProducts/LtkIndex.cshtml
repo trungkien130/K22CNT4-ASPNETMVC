@@ -1,0 +1,71 @@
+﻿@model IEnumerable<LtkK22Cnt4Lesson11Cb.Models.LtkProduct>
+
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkID2210900034)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkProName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkQty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LtkCatagory.LtkCateName)
+        </th>
+        <th>Chức năng</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.LtkID2210900034)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LtkProName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LtkQty)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LtkPrice)
+    </td>
+    <td>
+  @*      @Html.DisplayFor(modelItem => item.LtkActive)*@
+        @if (item.LtkActive == true)
+        {
+            <span style="color:green">Hoạt động</span>
+        }
+        else
+        {
+            <span style="color:red">Không hoạt động</span>
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LtkCatagory.LtkCateName)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.LtkID2210900034 }) |
+        @Html.ActionLink("Details", "Details", new { id = item.LtkID2210900034 }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.LtkID2210900034 })
+    </td>
+</tr>
+}
+
+</table>
