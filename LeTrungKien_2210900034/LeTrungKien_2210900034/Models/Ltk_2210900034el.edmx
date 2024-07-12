@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LeTrungKien_2210900034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ltk_Sach">
+          <Key>
+            <PropertyRef Name="Ltk_MaSach" />
+          </Key>
+          <Property Name="Ltk_MaSach" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Ltk_TenSach" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ltk_SoTrang" Type="int" />
+          <Property Name="Ltk_NamXB" Type="int" />
+          <Property Name="Ltk_MaTG" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ltk_TrangThai" Type="bit" />
+        </EntityType>
+        <EntityType Name="Ltk_TacGia">
+          <Key>
+            <PropertyRef Name="Ltk_MaTG" />
+          </Key>
+          <Property Name="Ltk_MaTG" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ltk_TenTG" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Ltk_Sach_Ltk_TacGia">
+          <End Role="Ltk_TacGia" Type="Self.Ltk_TacGia" Multiplicity="0..1" />
+          <End Role="Ltk_Sach" Type="Self.Ltk_Sach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ltk_TacGia">
+              <PropertyRef Name="Ltk_MaTG" />
+            </Principal>
+            <Dependent Role="Ltk_Sach">
+              <PropertyRef Name="Ltk_MaTG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LeTrungKien_2210900034ModelStoreContainer">
+          <EntitySet Name="Ltk_Sach" EntityType="Self.Ltk_Sach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ltk_TacGia" EntityType="Self.Ltk_TacGia" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ltk_Sach_Ltk_TacGia" Association="Self.FK_Ltk_Sach_Ltk_TacGia">
+            <End Role="Ltk_TacGia" EntitySet="Ltk_TacGia" />
+            <End Role="Ltk_Sach" EntitySet="Ltk_Sach" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LeTrungKien_2210900034Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ltk_Sach">
+          <Key>
+            <PropertyRef Name="Ltk_MaSach" />
+          </Key>
+          <Property Name="Ltk_MaSach" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Ltk_TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ltk_SoTrang" Type="Int32" />
+          <Property Name="Ltk_NamXB" Type="Int32" />
+          <Property Name="Ltk_MaTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ltk_TrangThai" Type="Boolean" />
+          <NavigationProperty Name="Ltk_TacGia" Relationship="Self.FK_Ltk_Sach_Ltk_TacGia" FromRole="Ltk_Sach" ToRole="Ltk_TacGia" />
+        </EntityType>
+        <EntityType Name="Ltk_TacGia">
+          <Key>
+            <PropertyRef Name="Ltk_MaTG" />
+          </Key>
+          <Property Name="Ltk_MaTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ltk_TenTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ltk_Sach" Relationship="Self.FK_Ltk_Sach_Ltk_TacGia" FromRole="Ltk_TacGia" ToRole="Ltk_Sach" />
+        </EntityType>
+        <Association Name="FK_Ltk_Sach_Ltk_TacGia">
+          <End Role="Ltk_TacGia" Type="Self.Ltk_TacGia" Multiplicity="0..1" />
+          <End Role="Ltk_Sach" Type="Self.Ltk_Sach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ltk_TacGia">
+              <PropertyRef Name="Ltk_MaTG" />
+            </Principal>
+            <Dependent Role="Ltk_Sach">
+              <PropertyRef Name="Ltk_MaTG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LeTrungKien_2210900034Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ltk_Sach" EntityType="Self.Ltk_Sach" />
+          <EntitySet Name="Ltk_TacGia" EntityType="Self.Ltk_TacGia" />
+          <AssociationSet Name="FK_Ltk_Sach_Ltk_TacGia" Association="Self.FK_Ltk_Sach_Ltk_TacGia">
+            <End Role="Ltk_TacGia" EntitySet="Ltk_TacGia" />
+            <End Role="Ltk_Sach" EntitySet="Ltk_Sach" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LeTrungKien_2210900034ModelStoreContainer" CdmEntityContainer="LeTrungKien_2210900034Entities">
+          <EntitySetMapping Name="Ltk_Sach">
+            <EntityTypeMapping TypeName="LeTrungKien_2210900034Model.Ltk_Sach">
+              <MappingFragment StoreEntitySet="Ltk_Sach">
+                <ScalarProperty Name="Ltk_MaSach" ColumnName="Ltk_MaSach" />
+                <ScalarProperty Name="Ltk_TenSach" ColumnName="Ltk_TenSach" />
+                <ScalarProperty Name="Ltk_SoTrang" ColumnName="Ltk_SoTrang" />
+                <ScalarProperty Name="Ltk_NamXB" ColumnName="Ltk_NamXB" />
+                <ScalarProperty Name="Ltk_MaTG" ColumnName="Ltk_MaTG" />
+                <ScalarProperty Name="Ltk_TrangThai" ColumnName="Ltk_TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ltk_TacGia">
+            <EntityTypeMapping TypeName="LeTrungKien_2210900034Model.Ltk_TacGia">
+              <MappingFragment StoreEntitySet="Ltk_TacGia">
+                <ScalarProperty Name="Ltk_MaTG" ColumnName="Ltk_MaTG" />
+                <ScalarProperty Name="Ltk_TenTG" ColumnName="Ltk_TenTG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

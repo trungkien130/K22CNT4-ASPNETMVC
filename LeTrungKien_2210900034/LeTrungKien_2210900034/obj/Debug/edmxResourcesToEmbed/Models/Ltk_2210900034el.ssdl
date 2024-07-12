@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LeTrungKien_2210900034Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ltk_Sach">
+    <Key>
+      <PropertyRef Name="Ltk_MaSach" />
+    </Key>
+    <Property Name="Ltk_MaSach" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Ltk_TenSach" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ltk_SoTrang" Type="int" />
+    <Property Name="Ltk_NamXB" Type="int" />
+    <Property Name="Ltk_MaTG" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ltk_TrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="Ltk_TacGia">
+    <Key>
+      <PropertyRef Name="Ltk_MaTG" />
+    </Key>
+    <Property Name="Ltk_MaTG" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ltk_TenTG" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Ltk_Sach_Ltk_TacGia">
+    <End Role="Ltk_TacGia" Type="Self.Ltk_TacGia" Multiplicity="0..1" />
+    <End Role="Ltk_Sach" Type="Self.Ltk_Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ltk_TacGia">
+        <PropertyRef Name="Ltk_MaTG" />
+      </Principal>
+      <Dependent Role="Ltk_Sach">
+        <PropertyRef Name="Ltk_MaTG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LeTrungKien_2210900034ModelStoreContainer">
+    <EntitySet Name="Ltk_Sach" EntityType="Self.Ltk_Sach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ltk_TacGia" EntityType="Self.Ltk_TacGia" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Ltk_Sach_Ltk_TacGia" Association="Self.FK_Ltk_Sach_Ltk_TacGia">
+      <End Role="Ltk_TacGia" EntitySet="Ltk_TacGia" />
+      <End Role="Ltk_Sach" EntitySet="Ltk_Sach" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

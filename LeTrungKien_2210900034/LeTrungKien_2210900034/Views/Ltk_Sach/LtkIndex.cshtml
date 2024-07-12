@@ -1,0 +1,57 @@
+﻿@model IEnumerable<LeTrungKien_2210900034.Models.Ltk_Sach>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "LtkCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ltk_TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ltk_SoTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ltk_NamXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ltk_TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ltk_TacGia.Ltk_TenTG)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ltk_TenSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ltk_SoTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ltk_NamXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ltk_TrangThai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ltk_TacGia.Ltk_TenTG)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "LtkEdit", new { id=item.Ltk_MaSach }) |
+            @Html.ActionLink("Details", "LtkDetails", new { id=item.Ltk_MaSach }) |
+            @Html.ActionLink("Delete", "LtkDelete", new { id=item.Ltk_MaSach })
+        </td>
+    </tr>
+}
+
+</table>

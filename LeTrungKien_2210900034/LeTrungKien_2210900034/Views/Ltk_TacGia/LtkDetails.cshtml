@@ -1,0 +1,26 @@
+﻿@model LeTrungKien_2210900034.Models.Ltk_TacGia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ltk_TacGia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ltk_TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ltk_TenTG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "LtkEdit", new { id = Model.Ltk_MaTG }) |
+    @Html.ActionLink("Back to List", "LtkIndex")
+</p>

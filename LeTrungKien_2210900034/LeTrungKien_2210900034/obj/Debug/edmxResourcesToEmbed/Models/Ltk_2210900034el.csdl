@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LeTrungKien_2210900034Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Ltk_Sach">
+    <Key>
+      <PropertyRef Name="Ltk_MaSach" />
+    </Key>
+    <Property Name="Ltk_MaSach" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Ltk_TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ltk_SoTrang" Type="Int32" />
+    <Property Name="Ltk_NamXB" Type="Int32" />
+    <Property Name="Ltk_MaTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ltk_TrangThai" Type="Boolean" />
+    <NavigationProperty Name="Ltk_TacGia" Relationship="Self.FK_Ltk_Sach_Ltk_TacGia" FromRole="Ltk_Sach" ToRole="Ltk_TacGia" />
+  </EntityType>
+  <EntityType Name="Ltk_TacGia">
+    <Key>
+      <PropertyRef Name="Ltk_MaTG" />
+    </Key>
+    <Property Name="Ltk_MaTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ltk_TenTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ltk_Sach" Relationship="Self.FK_Ltk_Sach_Ltk_TacGia" FromRole="Ltk_TacGia" ToRole="Ltk_Sach" />
+  </EntityType>
+  <Association Name="FK_Ltk_Sach_Ltk_TacGia">
+    <End Role="Ltk_TacGia" Type="Self.Ltk_TacGia" Multiplicity="0..1" />
+    <End Role="Ltk_Sach" Type="Self.Ltk_Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ltk_TacGia">
+        <PropertyRef Name="Ltk_MaTG" />
+      </Principal>
+      <Dependent Role="Ltk_Sach">
+        <PropertyRef Name="Ltk_MaTG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LeTrungKien_2210900034Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ltk_Sach" EntityType="Self.Ltk_Sach" />
+    <EntitySet Name="Ltk_TacGia" EntityType="Self.Ltk_TacGia" />
+    <AssociationSet Name="FK_Ltk_Sach_Ltk_TacGia" Association="Self.FK_Ltk_Sach_Ltk_TacGia">
+      <End Role="Ltk_TacGia" EntitySet="Ltk_TacGia" />
+      <End Role="Ltk_Sach" EntitySet="Ltk_Sach" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
